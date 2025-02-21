@@ -6,7 +6,7 @@ namespace MakerEngine.Application
     public class Window : IDisposable
     {
         public IntPtr Handle { get; private set; }
-        public bool IsOpen { get; set; }
+        public bool IsOpen { get; set; } = true;
 
         private bool _disposed;
 
