@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="glfw" Version="3.4.0" />
     <PackageReference Include="Vortice.Vulkan" Version="2.1.1" />
   </ItemGroup>
 
