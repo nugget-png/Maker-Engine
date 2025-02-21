@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using System.Runtime.InteropServices;
+using SDL2;
 
 namespace MakerEngine.Core
 {
@@ -43,6 +44,13 @@ namespace MakerEngine.Core
             Log.Information("Logger created succesfully");
             Log.Information($"Running in debug mode: {IsDebug.ToString()}");
 
+            // Initialize SDL2
+            if (SDL.SDL_Init(SDL.SDL_INIT_VIDEO) < 0)
+            {
+                Log.Fatal($"Failed to initialize SDL2: {SDL.SDL_GetError()}");
+                throw new Exception($"Failed to initialize SDL2: {SDL.SDL_GetError()}");
+            }
+
             Log.Information("Maker Engine initialized succesfully");
 
         }
@@ -50,6 +58,7 @@ namespace MakerEngine.Core
         public void Shutdown()
         {
             Console.WriteLine("Maker Engine is shutting down");
+            SDL.SDL_Quit();
         }
     }
 }
