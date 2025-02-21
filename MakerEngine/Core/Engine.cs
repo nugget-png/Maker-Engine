@@ -54,7 +54,7 @@ namespace MakerEngine.Core
 
             Log.Information("Logger created succesfully");
             Log.Information($"Running in debug mode: {IsDebug.ToString()}");
-
+            Log.Information($"Running on platform: {Platform}");
             // Initialize SDL2
             if (SDL.SDL_Init(SDL.SDL_INIT_VIDEO) < 0)
             {
