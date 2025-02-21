@@ -35,11 +35,22 @@ namespace MakerEngine.Core
             Console.WriteLine("Maker Engine is initializing");
 
             // Initialize the logger
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Console()
-                .WriteTo.Debug()
-                .CreateLogger();
+            if (IsDebug)
+            {
+                Log.Logger = new LoggerConfiguration()
+                    .MinimumLevel.Debug()
+                    .WriteTo.Console()
+                    .WriteTo.Debug()
+                    .CreateLogger();
+            }
+            else
+            {
+                Log.Logger = new LoggerConfiguration()
+                    .MinimumLevel.Information()
+                    .WriteTo.Console()
+                    .WriteTo.Debug()
+                    .CreateLogger();
+            }
 
             Log.Information("Logger created succesfully");
             Log.Information($"Running in debug mode: {IsDebug.ToString()}");
