@@ -1,4 +1,4 @@
-﻿namespace MakerEngine
+﻿namespace MakerEngine.Core
 {
     public class Engine
     {
